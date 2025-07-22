@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+*{
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+}
+::selection{
+    color: rgb(47, 169, 78);
+}
+
+ .underline-animate {
+    position: relative;
+    display: inline-block;
+  }
+  
+
+  .underline-animate::before,
+  .underline-animate::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: rgb(39 39 42); /* Tailwind zinc-800 */
+    transition: transform 0.5s ease;
+    transform-origin: left;
+  }
+
+  .underline-animate::before {
+    /* Initial underline (visible) */
+    transform: scaleX(1);
+  }
+
+  .underline-animate::after {
+    /* Hover underline (hidden initially) */
+    transform: scaleX(0);
+    background-color: rgb(24 24 27); /* Slightly darker zinc-900 */
+  }
+
+  .underline-animate:hover::before {
+    /* Move old underline out */
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+
+.underline-animate:hover::after {
+    /* Animate new underline in from left */
+    transform: scaleX(0);
+
+  }
